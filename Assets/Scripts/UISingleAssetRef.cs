@@ -45,7 +45,10 @@ public class UISingleAssetRef : MonoBehaviour
                     TitleText.text = AssetReferenceSprite.Asset.name + "\n" + time;
                 }
                 else
+                {
+                    AssetReferenceSprite.ReleaseAsset();
                     UnityEngine.Debug.LogFormat("載入失敗: {0} \nIsValid: {1}, IsDone: {2}", handle.Status.ToString() ,AssetReferenceSprite.IsValid(), AssetReferenceSprite.IsDone);
+                }
             }
         }
         else
@@ -56,7 +59,7 @@ public class UISingleAssetRef : MonoBehaviour
 
     private void releaseAsset()
     {
-        if(AssetReferenceSprite.Asset != null)
+        if(AssetReferenceSprite.IsValid())
             AssetReferenceSprite.ReleaseAsset();
     }
 

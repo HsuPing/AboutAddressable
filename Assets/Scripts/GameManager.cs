@@ -1,77 +1,75 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Threading.Tasks;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public List<string> CheckForCatalogUpdatesList = null;
+    public List<string> UpdateCatalogStringList = null;
+
     public List<object> UpdateCatalogsList = null;
 
-    
-    public async void CheckForCatalogUpdates()
-    {
-        Debug.Log("檢查Catalog");
+    private const string PRELOAD_LABEL = "preload";
 
-        var checkHandle = Addressables.CheckForCatalogUpdates(false);
-        await checkHandle.Task;
-        if(checkHandle.Status == AsyncOperationStatus.Succeeded)
+    public Image ProgressBar;
+
+    bool hotfixChecking = false;
+    public AssetReferenceGameObject UIHotfixAR;
+    public Transform CanvasTrans;
+    public GameObject UIHotfixGO;
+
+    public async void Hotfix()
+    {
+        if(hotfixChecking)
+            return;
+        hotfixChecking = true;
+        HotfixProcessor hotfixProcessor = new HotfixProcessor();
+        hotfixProcessor.DownloadStartCallback = () => Debug.Log("開始下載");
+        hotfixProcessor.DownloadCompleteCallback = () => 
+            {
+                hotfixChecking = false;
+                Debug.Log("執行完成");
+            };
+        hotfixProcessor.DownloadPercentCallback = (_value) => ProgressBar.fillAmount = _value;
+
+        var downloadProcess = await hotfixProcessor.Excute();
+        if(downloadProcess != null)
+            StartCoroutine(downloadProcess);
+    }
+
+    public async void LoadUIHotfix()
+    {
+        if(!UIHotfixAR.IsDone || UIHotfixAR.IsValid())
+            return;
+        Debug.Log("Load UIHotfix");
+        var handle = UIHotfixAR.LoadAssetAsync();
+        await handle.Task;
+        if(handle.Status == AsyncOperationStatus.Succeeded)
         {
-            CheckForCatalogUpdatesList = checkHandle.Result;
-            if(CheckForCatalogUpdatesList.Any())
-                Debug.Log("有需要更新的bundle");
+            var go = Instantiate(UIHotfixAR.Asset as GameObject);
+            go.transform.SetParent(CanvasTrans, false);
+            UIHotfixGO = go;
         }
         else
         {
-            Debug.LogFormat("檢查更新失敗: {0}", checkHandle.Status);
-        }
-
-        Addressables.Release(checkHandle);
-    }
-
-    public async void UpdateCatalogs()
-    {
-        if(CheckForCatalogUpdatesList != null && CheckForCatalogUpdatesList.Any())
-        {
-            Debug.Log("更新Catalog");
-            var updateHandle = Addressables.UpdateCatalogs(true ,CheckForCatalogUpdatesList, false);
-            await updateHandle.Task;
-
-            if(updateHandle.Status != AsyncOperationStatus.Succeeded)
-            {
-                Debug.LogFormat("更新失敗: {0}", updateHandle.Status);
-            }
-            else
-            {
-                UpdateCatalogsList = new List<object>();
-                var assets = updateHandle.Result;
-
-                for(short index = 0; index < assets.Count; index++)
-                {
-                    UpdateCatalogsList.AddRange(assets[index].Keys);
-                }
-            }
-
-            Addressables.Release(updateHandle);
+            UIHotfixAR.ReleaseAsset();
         }
     }
 
-    public async void DownloadUpdateAssets()
+    public void ReleaseUIHotfix()
     {
-        if(UpdateCatalogsList != null && UpdateCatalogsList.Any())
+        if(UIHotfixAR.IsValid())
         {
-            Debug.Log("下載開始");
-            var downloadHandle = Addressables.DownloadDependenciesAsync(UpdateCatalogsList, Addressables.MergeMode.Union);
-            await downloadHandle.Task;
-            if(downloadHandle.Status != AsyncOperationStatus.Succeeded)
-            {
-                Debug.LogFormat("下載失敗: {0}", downloadHandle.Status);
-            }
-
-            Addressables.Release(downloadHandle);
+            Debug.Log("Release UIHotfix");
+            UIHotfixAR.ReleaseAsset();
+            Destroy(UIHotfixGO);
         }
-    } 
+    }
 
     public void QuitGame()
     {

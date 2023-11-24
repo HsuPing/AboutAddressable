@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5d17a21594effb4e9591490b009e7aa, type: 3}
-  m_Name: Hotfix_Remote_BundledAssetGroupSchema
+  m_Name: Content Update_BundledAssetGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: ddc2a93cc9e094f4796b91e9210134b1, type: 2}
+  m_Group: {fileID: 11400000, guid: 2eb0b0ffef8fd4373b0e9fd5551bf145, type: 2}
   m_InternalBundleIdMode: 1
   m_Compression: 1
   m_IncludeAddressInCatalog: 1
   m_IncludeGUIDInCatalog: 1
   m_IncludeLabelsInCatalog: 1
   m_InternalIdNamingMode: 0
-  m_CacheClearBehavior: 1
+  m_CacheClearBehavior: 0
   m_IncludeInBuild: 1
   m_BundledAssetProviderType:
     m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -34,9 +34,9 @@ MonoBehaviour:
   m_RedirectLimit: -1
   m_RetryCount: 0
   m_BuildPath:
-    m_Id: ceed743367c174601a42b5ca1b498025
+    m_Id: c55284404f1b947c9b1660337ec91539
   m_LoadPath:
-    m_Id: 0025fab44b6144d8cac23f45b8c9f3c9
+    m_Id: 88f95baa0577c4ea1920ddc182a6cb83
   m_BundleMode: 0
   m_AssetBundleProviderType:
     m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

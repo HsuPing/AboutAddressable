@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: bae96b1c24c9f477e804606233c4b84d
   m_currentHash:
     serializedVersion: 2
-    Hash: 1378436c667d63670a10108c627be0c3
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ff380cd7942e49cab89ef7bbc924faf, type: 2}
   - {fileID: 11400000, guid: df93139538f404cbc9221d3a375fe056, type: 2}
   - {fileID: 11400000, guid: c24dae8382188444bbe6f22d39562d23, type: 2}
-  - {fileID: 11400000, guid: ddc2a93cc9e094f4796b91e9210134b1, type: 2}
-  - {fileID: 11400000, guid: cf3125eae02214f7f915cfa77aadabe1, type: 2}
+  - {fileID: 11400000, guid: 2eb0b0ffef8fd4373b0e9fd5551bf145, type: 2}
+  - {fileID: 11400000, guid: 870420ebd7282426b9739cc5b2876e1e, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -93,6 +93,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - preload
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 7caad0a2726b94701b790e3b0ecfe80a, type: 2}
@@ -127,7 +128,7 @@ MonoBehaviour:
           m_Key: ContentRoot
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Boolean
-          m_Data: False
+          m_Data: True
           m_Key: IsEnabled
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.String

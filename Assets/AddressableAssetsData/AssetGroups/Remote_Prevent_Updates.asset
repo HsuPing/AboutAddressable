@@ -20,7 +20,8 @@ MonoBehaviour:
   - m_GUID: 45aff4619112944889779272811ead10
     m_Address: remote_sprite
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 023eccbe7a0314cbbbc4ec272d7c047e, type: 2}

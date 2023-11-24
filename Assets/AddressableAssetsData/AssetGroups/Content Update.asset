@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Hotfix_Local
+  m_Name: Content Update
   m_EditorClassIdentifier: 
-  m_GroupName: Hotfix_Local
+  m_GroupName: Content Update
   m_Data:
     m_SerializedData: []
-  m_GUID: 2a0ac6a9d12fb48d092398750802d51f
+  m_GUID: 0abb4d8c36a944ddcb9f291334ea6877
   m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 023eccbe7a0314cbbbc4ec272d7c047e, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 1812b947db5114a1f9e6f319d1540a18, type: 2}
-    - {fileID: 11400000, guid: d2aedcd8c15b84dec96ccb42df0bdd7e, type: 2}
+    - {fileID: 11400000, guid: e3867c91a32524e6ab3bce17cd5077e0, type: 2}
+    - {fileID: 11400000, guid: 6fceb0df5a6b44cd59723f66067d4a6b, type: 2}

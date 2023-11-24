@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: Hotfix_Remote_ContentUpdateGroupSchema
+  m_Name: Content Update_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: ddc2a93cc9e094f4796b91e9210134b1, type: 2}
+  m_Group: {fileID: 11400000, guid: 2eb0b0ffef8fd4373b0e9fd5551bf145, type: 2}
   m_StaticContent: 0
